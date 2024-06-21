@@ -3,14 +3,8 @@ kind: Ingress
 metadata:
   name: {{ .Values.service.name }}
   namespace: {{ .Values.namespace }}
-annotations:
-{{ toYaml .Values.ingress.annotations | indent 2 }}
 spec:
   ingressClassName: {{ .Values.ingress.className }}
-  tls:
-    - hosts:
-        - {{ .Values.ingress.host }}
-      secretName: {{ .Values.ingress.secretName }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:

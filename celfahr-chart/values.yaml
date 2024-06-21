@@ -19,10 +19,6 @@ resources:
 # Ingress configuration
 ingress:
   host: valenceltest.modelodevops.sociuschile.cl
-  secretName: valenhelmcelfahr-secret-socius
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
   paths:
     - path: /?(.*)
       pathType: Prefix
