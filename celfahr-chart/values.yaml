@@ -18,25 +18,25 @@ resources:
 
 # Ingress configuration
 ingress:
-  name: celfahr-ingress
-  host: valenceltest.modelodevops.sociuschile.cl
-  paths:
-    - path: /?(.*)
-      pathType: Prefix
-      backend:
-        service:
-          name: celfahr-service  # Nombre del servicio para el Ingress
-          port:
-            number: 80
-  className: nginx  # Variable para la clase del Ingress
-  annotations:  # Agrega esta sección para las annotations
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: ingress-helmcel
+  enabled: true
+  ingressClassName: nginx
+  hosts:
+    - host: valenceltest.modelodevops.sociuschile.cl
+      paths:
+        - path: /?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: celfahr-service
+              port:
+                number: 80
   
 
 # Service configuration
 service:
   name: celfahr-service
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
   targetPort: 3000
 
