@@ -29,6 +29,9 @@ ingress:
           port:
             number: 80
   className: nginx  # Variable para la clase del Ingress
+  annotations:  # Agrega esta sección para las annotations
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  
 
 # Service configuration
 service:
