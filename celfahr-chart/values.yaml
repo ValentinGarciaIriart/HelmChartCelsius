@@ -36,7 +36,6 @@ service:
   targetPort: 3000
 
 # Deployment configuration
-namespace: valenhelm
 containerPort: 3000
 containerName: celfahr-container
 deploymentName: app-celfahr
