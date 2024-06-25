@@ -3,12 +3,12 @@ entries:
   celfahr-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-06-25T16:54:58.0770809-03:00"
+    created: "2024-06-25T16:56:44.1069754-03:00"
     description: Helm chart para desplegar mi app en kubernetes de fahrenheit-celsius
-    digest: b226efd9766863aa115a7c0700c078c83304a20c0ca11183cb77233e1b00dc58
+    digest: e6a0c8f0fed96be84a06d8acf064c37ed2237ef23c4511487dd85c630cf333a9
     name: celfahr-chart
     type: application
     urls:
     - https://valentingarciairiart.github.io/HelmChartCelsius/celfahr-chart-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-25T16:54:58.0762361-03:00"
+generated: "2024-06-25T16:56:44.1058881-03:00"
