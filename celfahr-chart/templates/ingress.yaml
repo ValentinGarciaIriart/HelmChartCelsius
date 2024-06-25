@@ -4,9 +4,14 @@ metadata:
   name: {{ .Values.ingress.name }}
   namespace: {{ .Values.namespace }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    cert-manager.io/cluster-issuer: {{ .Values.certName }} # esto es para usar la CA de azure configurado 
+    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.rewriteTarget }}
 spec:
   ingressClassName: {{ .Values.ingress.ingressClassName }}
+  tls:
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: {{ .Values.secretName }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:

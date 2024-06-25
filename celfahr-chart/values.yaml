@@ -41,3 +41,6 @@ namespace: valenhelm
 containerPort: 3000
 containerName: celfahr-container
 deploymentName: app-celfahr
+secretName: valhelm-secret-socius
+certName: letsencrypt-staging
+rewriteTarget: /$1
