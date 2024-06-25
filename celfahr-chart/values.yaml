@@ -10,14 +10,15 @@ image:
 
 resources:
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: "100m"
+    memory: "128Mi"
   requests:
-    cpu: 500m
-    memory: 512Mi
+    cpu: "500m"
+    memory: "512Mi"
 
 # Ingress configuration
 ingress:
+  name: celfahr-ingress
   host: valenceltest.modelodevops.sociuschile.cl
   paths:
     - path: /?(.*)
