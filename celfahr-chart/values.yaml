@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: valentingarciairiart/celfahr
-  tag: v4
+  tag: v5
   pullPolicy: Always
 
 resources:
@@ -30,7 +30,7 @@ ingress:
 
 # Service configuration
 service:
-  name: helmfahr-servicex
+  name: helmfahr-servicex2
   type: ClusterIP
   port: 80
   targetPort: 3000
