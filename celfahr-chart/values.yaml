@@ -18,6 +18,7 @@ resources:
 
 # Ingress configuration
 ingress:
+  pathType: Prefix
   name: ingress-helmcel
   enabled: true
   ingressClassName: nginx
@@ -25,7 +26,6 @@ ingress:
     - host: valenceltest.modelodevops.sociuschile.cl
       paths:
         - path: /?(.*)
-          pathType: Prefix
           backend:
             service:
               name: celfahr-service
