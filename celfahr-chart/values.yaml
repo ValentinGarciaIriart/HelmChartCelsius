@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: valentingarciairiart/celfahr
-  tag: v3
+  tag: v4
   pullPolicy: Always
 
 resources:
