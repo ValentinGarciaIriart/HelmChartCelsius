@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: valentingarciairiart/celfahr
-  tag: v3
+  tag: v4
   pullPolicy: Always
 
 resources:
@@ -19,10 +19,9 @@ resources:
 # Ingress configuration
 ingress:
   enabled: true
-  name: ingress-helmcel
-  namespace: valenhelm
+  name: nginx-helmcel
   ingressClassName: nginx
-  host: valenceltest.modelodevops.sociuschile.cl
+  host: valhelmtest.modelodevops.sociuschile.cl
   path: /(.*)   # Ruta absoluta válida
   pathType: Prefix  # Opción válida para pathType
   annotations:
@@ -31,7 +30,7 @@ ingress:
 
 # Service configuration
 service:
-  name: celfahr-service
+  name: helmfahr-service
   type: ClusterIP
   port: 80
   targetPort: 3000
@@ -41,6 +40,6 @@ namespace: valenhelm
 containerPort: 3000
 containerName: celfahr-container
 deploymentName: app-celfahr
-secretName: valhelm-secret-socius
+secretName: helmtest-socius
 certName: letsencrypt-staging
 rewriteTarget: /$1
