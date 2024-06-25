@@ -18,19 +18,15 @@ resources:
 
 # Ingress configuration
 ingress:
-  pathType: Prefix
-  name: ingress-helmcel
   enabled: true
+  name: ingress-helmcel
+  namespace: valenhelm
   ingressClassName: nginx
-  hosts:
-    - host: valenceltest.modelodevops.sociuschile.cl
-      paths:
-        - path: /?(.*)
-          backend:
-            service:
-              name: celfahr-service
-              port:
-                number: 80
+  host: valenceltest.modelodevops.sociuschile.cl
+  path: /(.*)   # Ruta absoluta válida
+  pathType: Prefix  # Opción válida para pathType
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   
 
 # Service configuration
