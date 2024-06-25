@@ -36,7 +36,7 @@ ingress:
 # Service configuration
 service:
   name: celfahr-service
-  type: ClusterIP
+  type: LoadBalancer
   port: 80
   targetPort: 3000
 
