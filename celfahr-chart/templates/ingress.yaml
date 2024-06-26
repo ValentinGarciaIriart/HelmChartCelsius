@@ -4,14 +4,15 @@ metadata:
   name: {{ .Values.ingress.name }}
   namespace: {{ .Values.namespace }}
   annotations:
-    cert-manager.io/cluster-issuer: {{ .Values.certName }} # esto es para usar la CA de azure configurado 
-    nginx.ingress.kubernetes.io/rewrite-target: {{ .Values.rewriteTarget }}
+{{- range $key, $value := .Values.annotations }}
+    {{ $key }}: {{ $value | quote }}
+{{- end }}
 spec:
   ingressClassName: {{ .Values.ingress.ingressClassName }}
   tls:
-  - hosts:
-    - {{ .Values.ingress.host }}
-    secretName: {{ .Values.secretName }}
+    - hosts:
+        - {{ .Values.ingress.host }}
+      secretName: {{ .Values.secretName }}
   rules:
     - host: {{ .Values.ingress.host }}
       http:
@@ -23,4 +24,3 @@ spec:
                 name: {{ .Values.service.name }}
                 port:
                   number: {{ .Values.service.port }}
-
