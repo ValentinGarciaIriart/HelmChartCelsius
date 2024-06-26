@@ -8,7 +8,7 @@ containerName: celfahr-container
 deploymentName: app-celfahr
 image:
   repository: valentingarciairiart/celfahr
-  tag: v9
+  tag: v1.0
   pullPolicy: Always
 resources:
   limits:
