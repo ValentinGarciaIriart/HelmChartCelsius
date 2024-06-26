@@ -5,7 +5,7 @@
 replicaCount: 1
 image:
   repository: valentingarciairiart/celfahr
-  tag: v8
+  tag: v9
   pullPolicy: Always
 
 resources:
@@ -24,8 +24,10 @@ ingress:
   host: valhelmtest.modelodevops.sociuschile.cl
   path: /(.*)   # Ruta absoluta válida
   pathType: Prefix  # Opción válida para pathType
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  
+annotations:
+  cert-manager.io/cluster-issuer: "letsencrypt-staging"
+  nginx.ingress.kubernetes.io/rewrite-target: "/$1"
   
 
 # Service configuration
@@ -40,5 +42,3 @@ containerPort: 3000
 containerName: celfahr-container
 deploymentName: app-celfahr
 secretName: helmtest-socius
-certName: letsencrypt-staging
-rewriteTarget: /$1
