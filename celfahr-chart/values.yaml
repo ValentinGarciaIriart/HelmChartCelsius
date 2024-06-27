@@ -25,7 +25,15 @@ deployment:
               cpu: 100m
               memory: 128Mi
 
-
+# Service configuration
+service:
+  metadata:
+    name: helmfahr-servicex2
+  spec:
+    type: ClusterIP
+    ports:
+        port: 80
+        targetPort: 3000
 
 # Ingress configuration
 ingress:
@@ -47,13 +55,3 @@ ingress:
           paths:
             - path: /(.*)   # Ruta absoluta válida
               pathType: Prefix  # Opción válida para pathType
-
-# Service configuration
-service:
-  metadata:
-    name: helmfahr-servicex2
-  spec:
-    type: ClusterIP
-    ports:
-        port: 80
-        targetPort: 3000
