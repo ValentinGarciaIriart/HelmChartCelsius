@@ -41,8 +41,10 @@ ingress:
 
 # Service configuration
 service:
-  name: helmfahr-servicex2
-  type: ClusterIP
-  port: 80
-  targetPort: 3000
-
+  metadata:
+    name: helmfahr-servicex2
+  spec:
+    type: ClusterIP
+    ports:
+        port: 80
+        targetPort: 3000
