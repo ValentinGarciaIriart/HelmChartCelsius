@@ -1,28 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deploymentName }}
+  name: {{ .Values.deployment.metadata.name }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.deployment.spec.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.deploymentName }}
+      app: {{ .Values.deployment.metadata.name }}
   template:
     metadata:
       labels:
-        app: {{ .Values.deploymentName }}
+        app: {{ .Values.deployment.metadata.name }}
     spec:
       containers:
-        - name: {{ .Values.containerName }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: {{ .Values.deployment.spec.template.spec.containers.name }}
+          image: "{{ .Values.deployment.spec.template.spec.containers.image.repository }}:{{ .Values.deployment.spec.template.spec.containers.image.tag }}"
+          imagePullPolicy: {{ .Values.deployment.spec.template.spec.containers.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.containerPort }}
+            - containerPort: {{ .Values.deployment.spec.template.spec.containers.ports.containerPort }}
           resources:
             limits:
-              cpu: {{ .Values.resources.limits.cpu }}
-              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.deployment.spec.template.spec.containers.resources.limits.cpu }}
+              memory: {{ .Values.deployment.spec.template.spec.containers.resources.limits.memory }}
             requests:
-              cpu: {{ .Values.resources.requests.cpu }}
-              memory: {{ .Values.resources.requests.memory }}
-
+              cpu: {{ .Values.deployment.spec.template.spec.containers.resources.cpu }}
+              memory: {{ .Values.deployment.spec.template.spec.containers.resources.memory }}

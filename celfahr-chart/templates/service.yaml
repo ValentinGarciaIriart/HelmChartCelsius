@@ -8,4 +8,4 @@ spec:
     - port: {{ .Values.service.spec.ports.port }}
       targetPort: {{ .Values.service.spec.ports.targetPort }}
   selector:
-    app: {{ .Values.deploymentName }}
+    app: {{ .Values.deployment.metadata.name }}

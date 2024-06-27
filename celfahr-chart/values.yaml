@@ -2,21 +2,30 @@
 # You can override these values in the helm command or in a separate values.yaml file.
 
 # Deployment configuration
-replicaCount: 1
-containerPort: 3000
-containerName: celfahr-container
-deploymentName: app-celfahr
-image:
-  repository: valentingarciairiart/celfahr
-  tag: v1.0
-  pullPolicy: Always
-resources:
-  limits:
-    cpu: 500m
-    memory: 512Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+deployment: 
+  metadata:
+    name: app-celfahr
+  spec:
+    replicaCount: 1
+    template:
+      spec:
+        containers: 
+          name: celfahr-container
+          image:
+            repository: valentingarciairiart/celfahr
+            tag: v1.1
+            pullPolicy: Always
+          ports:
+            containerPort: 3000
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+
 
 # Ingress configuration
 ingress:
